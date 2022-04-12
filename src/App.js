@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Display from './Display';
+import FullCard from './FullCard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App=()=>{
+  const data = [
+    {
+      title: "Html",
+      description : "This is Html"
+    },
+    {
+      title: "Css",
+      description : "This is css"
+    },
+    {
+      title: "Js",
+      description : "This is js"
+    },
+    {
+      title: "React",
+      description : "This is React"
+    },
+    {
+      title: "Angular",
+      description : "This is Angular"
+    },
+    {
+      title: "Vue",
+      description : "This is Vue"
+    }
+  ]
+return(
+  <BrowserRouter>
+  <Routes>
+    <Route  path='/' element={<Display data={data}/>}/>
+    <Route  path='/cards/:title' element={<FullCard data={data}/>}/>
+  </Routes>
+  </BrowserRouter>
+)
 }
 
 export default App;

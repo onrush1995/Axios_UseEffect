@@ -75,3 +75,16 @@ section{
 .fullCard h1{
   font-size: 70px;
 }
+
+.button{
+  background: greenyellow;
+  text-align: center;
+  font-weight: 900;
+  color: black;
+  padding: 7px;
+  margin: 15px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 4px ;
+
+}
