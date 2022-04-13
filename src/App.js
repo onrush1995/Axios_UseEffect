@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Display from './Display';
 import FullCard from './FullCard';
+import DataFetch from './DataFetch';
 
 
 const App=()=>{
@@ -36,7 +37,7 @@ return(
   <BrowserRouter>
   <Routes>
     <Route  path='/' element={<Display data={data}/>}/>
-    <Route  path='/cards/:title' element={<FullCard data={data}/>}/>
+    <Route  path='/cards/:title' element={<FullCard data={data}/>}/> 
   </Routes>
   </BrowserRouter>
 )
