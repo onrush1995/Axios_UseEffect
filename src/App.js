@@ -1,38 +1,23 @@
-import React from 'react';
+import React, { useState ,useEffect} from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Display from './Display';
 import FullCard from './FullCard';
-import DataFetch from './DataFetch';
+import axios from 'axios';
 
 
-const App=()=>{
-  const data = [
-    {
-      title: "Html",
-      description : "This is Html"
-    },
-    {
-      title: "Css",
-      description : "This is css"
-    },
-    {
-      title: "Js",
-      description : "This is js"
-    },
-    {
-      title: "React",
-      description : "This is React"
-    },
-    {
-      title: "Angular",
-      description : "This is Angular"
-    },
-    {
-      title: "Vue",
-      description : "This is Vue"
-    }
-  ]
+
+const App =()=> {
+
+  const [data,setData] = useState([]);
+
+  useEffect(()=> {
+      axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
+          setData(res.data);
+          
+      }).catch((err)=>{console.log(err)})
+  },[]);
+
 return(
   <BrowserRouter>
   <Routes>
@@ -42,5 +27,4 @@ return(
   </BrowserRouter>
 )
 }
-
 export default App;
